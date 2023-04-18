@@ -1,3 +1,4 @@
+#! /bin/bash
 ### Playlist "Docker na Prática com Python" (https://www.youtube.com/playlist?list=PLAgbpJQADBGIDbMSopaqFnGm7GJnwru0-) ###
 ### Video 3/7: Docker na Prática - Aula 2 - Setando a Aplicação ###
 

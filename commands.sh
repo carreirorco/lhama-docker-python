@@ -63,3 +63,7 @@ export FLASK_APP=run.py
 
 # Run Flask
 flask run
+
+# Commit
+git add .
+git commit -m "feat: implementing first route"

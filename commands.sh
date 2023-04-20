@@ -141,3 +141,8 @@ docker exec -i 11eccd2348bf mysql -uroot -plhama <./init/schema.sql
 ### Video 5/7: Docker na Prática - Aula 5 - Aplicação e Banco de Dados ###
 
 # Some directories and files has been created
+pip install sqlalchemy
+docker network create  mynet
+docker run -d -e MYSQL_ROOT_PASSWORD=lhama --network mynet -v mysqlVolume:/var/lib/mysql mysql:latest
+docker build . --tag docker-pythonv2
+

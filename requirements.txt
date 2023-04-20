@@ -5,6 +5,7 @@ cryptography==40.0.2
 distlib==0.3.6
 filelock==3.12.0
 Flask==2.2.3
+greenlet==2.0.2
 identify==2.5.22
 itsdangerous==2.1.2
 Jinja2==3.1.2
@@ -15,5 +16,7 @@ pre-commit==3.2.2
 pycparser==2.21
 PyMySQL==1.0.3
 PyYAML==6.0
+SQLAlchemy==2.0.9
+typing_extensions==4.5.0
 virtualenv==20.21.0
 Werkzeug==2.2.3

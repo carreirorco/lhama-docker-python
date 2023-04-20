@@ -103,7 +103,7 @@ docker start 9d01ce909972
 docker stop 9d01ce909972
 docker exec -it 9d01ce909972 bash
 
-### Video 4/7: Docker na Prática - Aula 4 - Portas, Banco de Dados e Volumes ###
+### Video 5/7: Docker na Prática - Aula 4 - Portas, Banco de Dados e Volumes ###
 
 # Docker commands example
 docker sop 9d0
@@ -138,10 +138,41 @@ EOF
 # Execute schema.sql on mysql container
 docker exec -i 11eccd2348bf mysql -uroot -plhama <./init/schema.sql
 
-### Video 5/7: Docker na Prática - Aula 5 - Aplicação e Banco de Dados ###
+### Video 6/7: Docker na Prática - Aula 5 - Aplicação e Banco de Dados ###
 
 # Some directories and files has been created
 pip install sqlalchemy
 docker network create  mynet
 docker run --name mysqldb  -e MYSQL_ROOT_PASSWORD=lhama --network mynet -v mysqlVolume:/var/lib/mysql -d mysql:latestdocker build . --tag docker-pythonv2
 
+### Video 7/7: Docker na Prática - Aula 6 - Docker Compose ###
+
+# Create docker-compose.yml
+cat << EOF > docker-compose.yml
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: lhama
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - mysqlVolume:/var/lib/mysql
+      - mysqlConfig:/etc/mysql
+
+  docker-python:
+    build: 
+      context: .
+    ports:
+      - "3000:5000"
+    depends_on:
+      - mysqldb
+
+volumes:
+  mysqlVolume: 
+  mysqlConfig: 
+EOF
+
+# Run docker-compose
+docker-compose -f docker-compose.yml up --build

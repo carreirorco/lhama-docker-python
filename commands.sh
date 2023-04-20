@@ -11,6 +11,7 @@ sudo apt install -y python3-venv
 python3 -m venv venv
 
 # Activate the virtual environment
+# shellcheck source=venv/bin/activate
 source venv/bin/activate
 
 # On Code, press Ctrl+Shift+P and type "Python: Select Interpreter" and select the venv
@@ -103,3 +104,18 @@ docker stop 9d01ce909972
 docker exec -it 9d01ce909972 bash
 
 ### Video 4/7: Docker na Prática - Aula 4 - Portas, Banco de Dados e Volumes ###
+
+# Docker commands example
+docker sop 9d0
+docker rm 9d0
+docker run -p 2300:5000 -d docker-python
+docker stop e09
+
+# Create a mysql container
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=lhama -d mysql:latest
+docker inspect 4b6be5693
+docker stop 4b6be5693
+docker rm 4b6be5693
+
+# Create a mysql container with port 3306 and a volume
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=lhama -p 3306:3306 -v mysqlVolume:/var/lib/mysql -d mysql:latest

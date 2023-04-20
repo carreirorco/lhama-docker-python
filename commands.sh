@@ -143,6 +143,5 @@ docker exec -i 11eccd2348bf mysql -uroot -plhama <./init/schema.sql
 # Some directories and files has been created
 pip install sqlalchemy
 docker network create  mynet
-docker run -d -e MYSQL_ROOT_PASSWORD=lhama --network mynet -v mysqlVolume:/var/lib/mysql mysql:latest
-docker build . --tag docker-pythonv2
+docker run --name mysqldb  -e MYSQL_ROOT_PASSWORD=lhama --network mynet -v mysqlVolume:/var/lib/mysql -d mysql:latestdocker build . --tag docker-pythonv2
 

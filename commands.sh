@@ -119,3 +119,23 @@ docker rm 4b6be5693
 
 # Create a mysql container with port 3306 and a volume
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=lhama -p 3306:3306 -v mysqlVolume:/var/lib/mysql -d mysql:latest
+
+# Commit
+git add commands.sh
+git commit -m "doc: create mysql container with a volume"
+
+# Create a file to create database and table on mysql
+mkdir init
+cat << EOF > init/schema.sql
+CREATE DATABASE teste;
+
+CREATE TABLE IF NOT EXISTS `teste`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL
+) ENGINE = InnoDB;
+EOF
+
+# Execute schema.sql on mysql container
+docker exec -i 11eccd2348bf mysql -uroot -plhama <./init/schema.sql
+
+### Video 5/7: Docker na Prática - Aula 5 - Aplicação e Banco de Dados ###

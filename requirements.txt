@@ -13,7 +13,7 @@ docker-compose==1.29.2
 dockerpty==0.4.1
 docopt==0.6.2
 filelock==3.12.0
-Flask==2.2.3
+Flask==2.2.5
 greenlet==2.0.2
 identify==2.5.22
 idna==3.4
